@@ -18,17 +18,24 @@ body {
     border-radius: 5px;
 }
 
-.calc-container input {
-    background: none;
-    border: none;
-    box-shadow: none;
+.display {
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     border-bottom: 2px solid #111;
-    padding: 20px;
-    text-align: right;
-    font-size: 40px;
+    height: 80px;
+    justify-content:flex-end ;
+    align-items: flex-end;
+
 }
 
+.previous {
+    font-size: 20px;
+}
+.current {
+    font-size: 30px;
+}
 .calculator-buttons {
     padding: 20px;
     display: grid;
@@ -37,7 +44,9 @@ body {
     grid-gap: 15px;
 }
 
-.calc-button {
+.calc-button,
+.op-button,
+.num-button {
     background: rgba(0, 0, 0, 0.5) ;
     border: 1px solid #111;
     padding: 20px;
