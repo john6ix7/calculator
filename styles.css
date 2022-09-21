@@ -46,7 +46,9 @@ body {
 
 .calc-button,
 .op-button,
-.num-button {
+.num-button,
+.equal-button,
+.clear-button{
     background: rgba(0, 0, 0, 0.5) ;
     border: 1px solid #111;
     padding: 20px;
