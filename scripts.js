@@ -38,27 +38,11 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
     equal.addEventListener("click", ()=> { 
-       previousValue = Number(previousValue);  
-       currentValue = Number(currentValue); // converts value into number 
-       
-       if (operator === '+') {
-        add(previousValue, currentValue)
-       } else if (operator === '-'){
-        subtract(previousValue, currentValue)
-       } else if (operator === 'x') {
-        multiply(previousValue, currentValue) 
-       } else {
-        divide(previousValue, currentValue)
-       }   
-       
-       previousValue = roundNumber(previousValue)
+      calculate()
+      previousScreen.textContent = '';
+      currentScreen.textContent = previousValue;
     })
 })
-
-function roundNumber(num){
-    return Math.round(num * 1000) / 1000;
-} 
-
 
 function handleNumber(num) {
     if (currentValue.length <= 8){
@@ -73,8 +57,29 @@ function handleOperator(op) {
 }
 
 function calculate() {
+    previousValue = Number(previousValue);  
+    currentValue = Number(currentValue); // converts value into number 
+    
+    if (operator === '+') {
+     previousValue = add(previousValue, currentValue)
+    } else if (operator === '-'){
+     previousValue = subtract(previousValue, currentValue)
+    } else if (operator === 'x') {
+     previousValue = multiply(previousValue, currentValue) 
+    } else {
+     previousValue = divide(previousValue, currentValue)
+    }   
+    
 
+    previousValue = roundNumber(previousValue)
+    previousValue = previousValue.toString();
+    currentValue = previousValue.toString();
 }
+
+function roundNumber(num){
+    return Math.round(num * 1000) / 1000;
+} 
+
 
 
 
