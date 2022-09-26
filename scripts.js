@@ -2,6 +2,11 @@ let operator = '';
 let previousValue = '';
 let currentValue = '';
 
+const add = (num1, num2) => num1 + num2;
+const subtract = (num1, num2) => num1 - num2;
+const multiply = (num1, num2) => num1 * num2;
+const divide = (num1, num2) => num1 / num2;
+
 document.addEventListener("DOMContentLoaded", function() {
     // Store all components on HTML in our JS
     const clear = document.querySelector('.clear-button')
@@ -31,7 +36,29 @@ document.addEventListener("DOMContentLoaded", function() {
         previousScreen.textContent = currentValue;
         currentScreen.textContent = currentValue;
     })
+
+    equal.addEventListener("click", ()=> { 
+       previousValue = Number(previousValue);  
+       currentValue = Number(currentValue); // converts value into number 
+       
+       if (operator === '+') {
+        add(previousValue, currentValue)
+       } else if (operator === '-'){
+        subtract(previousValue, currentValue)
+       } else if (operator === 'x') {
+        multiply(previousValue, currentValue) 
+       } else {
+        divide(previousValue, currentValue)
+       }   
+       
+       previousValue = roundNumber(previousValue)
+    })
 })
+
+function roundNumber(num){
+    return Math.round(num * 1000) / 1000;
+} 
+
 
 function handleNumber(num) {
     if (currentValue.length <= 8){
@@ -43,6 +70,10 @@ function handleOperator(op) {
     operator = op;
     previousValue = currentValue;
     currentValue = ''
+}
+
+function calculate() {
+
 }
 
 
